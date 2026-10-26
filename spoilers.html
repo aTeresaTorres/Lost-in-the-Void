@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Spoiléate — Lost in the Void</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/spoilers.css">
+</head>
+<body class="spoilers-page">
+  <div class="bg-gradient"></div>
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+  <div class="scanlines"></div>
+
+  <header class="spoiler-header">
+    <a href="index.html" class="back-link">◂ Volver</a>
+    <h1 class="spoiler-title">Spoiléate</h1>
+    <p class="spoiler-sub">Lo que hasta ahora se sabe de <em>Lost in the Void</em></p>
+  </header>
+
+  <main class="characters">
+
+    <!-- Personaje 1 -->
+    <article class="character">
+      <div class="char-visuals">
+        <div class="char-full">
+          <img src="img/characters/character1_01.png" alt="Personaje 1 — cuerpo completo" />
+        </div>
+        <div class="char-selfie">
+          <img src="img/characters/character1_02.png" alt="Personaje 1 — selfie" />
+        </div>
+      </div>
+
+      <div class="char-info">
+        <h2 class="char-name">Oibs Nibou</h2>
+        <p class="char-place"><span class="label">Su lugar</span> de la Lógica</p>
+
+        <div class="char-block">
+          <h3 class="block-title">Características</h3>
+          <ul class="traits">
+            <li>Curioso</li>
+            <li>Le encanta el color verde</li>
+            <li>No puede evitar perderse</li>
+            <li>Confía demasiado</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+    <!-- Personaje 2 -->
+    <article class="character reverse">
+      <div class="char-visuals">
+        <div class="char-full">
+          <img src="img/characters/character2_01.png" alt="Personaje 2 — cuerpo completo" />
+        </div>
+        <div class="char-selfie">
+          <img src="img/characters/character2_02.png" alt="Personaje 2 — selfie" />
+        </div>
+      </div>
+
+      <div class="char-info">
+        <h2 class="char-name">Aos Podsh</h2>
+        <p class="char-place"><span class="label">Su lugar</span> de la Lógica</p>
+
+        <div class="char-block">
+          <h3 class="block-title">Características</h3>
+          <ul class="traits">
+            <li>Reservado</li>
+            <li>Evita multitudes</li>
+            <li>Prefiere ver todo como modo espectador</li>
+            <li>Se preocupa más de lo que admite</li>
+          </ul>
+        </div>
+      </div>
+    </article>
+
+  </main>
+
+  <footer class="banner-footer">
+    <a href="index.html" aria-label="Volver al coming soon">
+      <img src="img/banners/footer-banner.png" alt="Lost in the Void — próximamente" />
+    </a>
+  </footer>
+
+<script src="js/common.js"></script>
+<script src="js/spoilers.js"></script>
+</body>
+</html>

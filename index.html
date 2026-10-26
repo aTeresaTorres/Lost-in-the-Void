@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Lost in the Void — Próximamente</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@300;400;600&family=Cormorant+Garamond:ital,wght@0,300;0,500;1,300&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/coming-soon.css">
+</head>
+<body>
+  <div class="bg-gradient"></div>
+  <div class="grid-bg"></div>
+  <canvas id="particles"></canvas>
+  <div class="scanlines"></div>
+
+  <main class="container">
+    <div class="badge">
+      <span class="dot"></span>
+      <span>Manuscrito en progreso</span>
+    </div>
+
+    <h1 class="title">Lost in<br><em>the Void</em></h1>
+
+    <p class="typing">
+      <span id="typeText"></span><span class="caret"></span>
+    </p>
+
+    <div class="progress-wrap">
+      <div class="progress-labels">
+        <span>Estado del libro</span>
+        <span id="progressPct">0%</span>
+      </div>
+      <div class="progress-bar">
+        <div class="progress-fill" id="progressFill"></div>
+      </div>
+    </div>
+
+    <form class="waitlist" id="waitlistForm" onsubmit="event.preventDefault(); handleSubmit();">
+      <input type="email" id="emailInput" placeholder="tu@email.com" required />
+      <button type="submit" class="btn">Avísame</button>
+    </form>
+    <div class="toast" id="toast">✦ Gracias — te avisaré cuando esté listo ✦</div>
+
+    <a href="spoilers.html" class="spoil-link">
+      <span class="spoil-icon">▸</span>
+      Spoiléate
+      <span class="spoil-hint">(entra bajo tu propio riesgo)</span>
+    </a>
+
+    <div class="meta">
+      <span>◆</span> 2026 — Lost in the Void <span>◆</span>
+    </div>
+  </main>
+
+<script src="js/common.js"></script>
+<script src="js/coming-soon.js"></script>
+</body>
+</html>

@@ -1,0 +1,303 @@
+/* Sin cartas: layout limpio en dos columnas con separador sutil */
+.spoilers-page{
+  display:block;
+  padding-bottom:0;
+}
+
+.spoiler-header{
+  max-width:1200px;
+  margin:0 auto;
+  padding:5rem 2rem 3rem;
+  text-align:center;
+  position:relative;
+  z-index:2;
+}
+.back-link{
+  position:absolute;top:2rem;left:2rem;
+  font-size:.72rem;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--pastel);text-decoration:none;
+  opacity:.7;transition:all .3s ease;
+}
+.back-link:hover{opacity:1;color:var(--neon);transform:translateX(-3px)}
+
+.spoiler-title{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(3rem, 8vw, 5.5rem);
+  font-weight:300;
+  letter-spacing:-0.02em;
+  line-height:1;
+  background:linear-gradient(135deg, var(--pastel), var(--neon) 50%, var(--violet));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  filter:drop-shadow(0 0 30px rgba(237,92,201,0.25));
+}
+.spoiler-sub{
+  margin-top:1rem;
+  font-size:.85rem;
+  letter-spacing:.2em;
+  text-transform:uppercase;
+  color:rgba(233,230,242,0.6);
+}
+.spoiler-sub em{
+  font-family:'Cormorant Garamond', serif;
+  font-style:italic;
+  font-size:1.1rem;
+  color:var(--pastel);
+  letter-spacing:0;
+  text-transform:none;
+}
+
+/* Personajes */
+.characters{
+  max-width:1200px;
+  margin:0 auto;
+  padding:2rem 2rem 6rem;
+  position:relative;
+  z-index:2;
+  display:flex;
+  flex-direction:column;
+  gap:6rem;
+}
+
+.character{
+  display:grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap:4rem;
+  align-items:center;
+  position:relative;
+}
+.character.reverse{
+  grid-template-columns: 1fr 1.1fr;
+}
+.character.reverse .char-visuals{order:2}
+.character.reverse .char-info{order:1;text-align:right}
+.character.reverse .traits li{padding-right:1.2rem;padding-left:0}
+.character.reverse .traits li::before{
+  right:0;left:auto;
+  content:"◂";
+}
+.character.reverse .block-title::after{
+  left:auto;right:0;
+}
+
+/* Separador entre personajes */
+.character + .character::before{
+  content:"";
+  position:absolute;
+  top:-3rem;left:50%;transform:translateX(-50%);
+  width:60%;
+  height:1px;
+  background:linear-gradient(90deg, transparent, rgba(237,92,201,0.4), transparent);
+}
+
+/* Visuales */
+.char-visuals{
+  position:relative;
+  aspect-ratio:4/5;
+  max-width:520px;
+  margin:0 auto;
+  width:100%;
+}
+.char-full{
+  position:absolute;
+  inset:0;
+  border-radius:16px;
+  overflow:hidden;
+  /* background:rgba(51,57,82,0.3); */
+  /* border:1px solid rgba(255,196,229,0.15); */
+  /* box-shadow:0 0 60px rgba(102,51,128,0.3); */
+  transition:all .5s ease;
+}
+.char-full img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(0.9) contrast(1.05);
+  transition:transform .8s ease;
+}
+.character:hover .char-full img{transform:scale(1.03)}
+/* .character:hover .char-full{
+  box-shadow:0 0 80px rgba(237,92,201,0.35);
+  border-color:rgba(237,92,201,0.4);
+} */
+
+/* Selfie superpuesta */
+.char-selfie{
+  position:absolute;
+  bottom:-2rem;
+  right:-2rem;
+  width:42%;
+  aspect-ratio:1;
+  border-radius:50%;
+  overflow:hidden;
+  border:2px solid var(--neon);
+  background:var(--bg);
+  box-shadow:0 0 30px rgba(237,92,201,0.5);
+  transition:transform .4s ease;
+  z-index:2;
+}
+.character.reverse .char-selfie{
+  right:auto;left:-2rem;
+}
+.char-selfie img{
+  width:100%;height:100%;object-fit:cover;
+  filter:saturate(1.1);
+}
+.character:hover .char-selfie{
+  transform:rotate(-4deg) scale(1.05);
+}
+
+/* Info */
+.char-info{
+  display:flex;
+  flex-direction:column;
+  gap:2rem;
+}
+
+.char-name{
+  font-family:'Cormorant Garamond', serif;
+  font-size:clamp(2.2rem, 5vw, 3.5rem);
+  font-weight:300;
+  line-height:1;
+  letter-spacing:-0.01em;
+  color:var(--pastel);
+}
+.char-name::before{
+  content:"▸ ";
+  color:var(--neon);
+  font-size:.7em;
+  vertical-align:middle;
+}
+
+.char-place{
+  font-size:.8rem;
+  letter-spacing:.25em;
+  text-transform:uppercase;
+  color:rgba(233,230,242,0.75);
+}
+.char-place .label{
+  display:block;
+  font-size:.65rem;
+  color:var(--neon);
+  letter-spacing:.35em;
+  margin-bottom:.4rem;
+  opacity:.8;
+}
+
+.char-block{
+  display:flex;
+  flex-direction:column;
+  gap:1rem;
+}
+
+.block-title{
+  font-size:.72rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--neon);
+  position:relative;
+  padding-bottom:.6rem;
+}
+.block-title::after{
+  content:"";
+  position:absolute;
+  bottom:0;left:0;
+  width:40px;height:1px;
+  background:var(--neon);
+  box-shadow:0 0 10px var(--neon);
+}
+
+/* Lista de rasgos — limpia, sin cards */
+.traits{
+  list-style:none;
+  display:flex;
+  flex-direction:column;
+  gap:.6rem;
+  font-size:.9rem;
+  line-height:1.5;
+  color:rgba(233,230,242,0.85);
+}
+.traits li{
+  position:relative;
+  padding-left:1.2rem;
+  transition:color .3s ease, padding .3s ease;
+}
+.traits li::before{
+  content:"▸";
+  position:absolute;
+  left:0;top:0;
+  color:var(--neon);
+  font-size:.75em;
+  opacity:.7;
+  transition:opacity .3s ease;
+}
+.traits li:hover{
+  color:var(--pastel);
+  padding-left:1.4rem;
+}
+.traits li:hover::before{opacity:1}
+
+/* Banner footer */
+.banner-footer{
+  position:relative;
+  width:100%;
+  margin-top:4rem;
+  z-index:2;
+}
+.banner-footer a{
+  display:block;
+  position:relative;
+  overflow:hidden;
+  text-decoration:none;
+}
+.banner-footer img{
+  width:100%;
+  height:auto;
+  display:block;
+  transition:transform .8s ease, filter .5s ease;
+  filter:saturate(0.9) brightness(0.85);
+  min-height:180px;
+  object-fit:cover;
+  /* background:linear-gradient(135deg, var(--violet), var(--slate)); */
+}
+.banner-footer a:hover img{
+  transform:scale(1.02);
+  filter:saturate(1.1) brightness(1);
+}
+.banner-hint{
+  position:absolute;
+  bottom:1.5rem;left:50%;
+  transform:translateX(-50%);
+  font-size:.72rem;
+  letter-spacing:.4em;
+  text-transform:uppercase;
+  color:var(--pastel);
+  padding:.6rem 1.4rem;
+  border:1px solid rgba(255,196,229,0.4);
+  border-radius:999px;
+  background:rgba(10,8,18,0.6);
+  backdrop-filter:blur(8px);
+  transition:all .4s ease;
+}
+.banner-footer a:hover .banner-hint{
+  color:#fff;
+  border-color:var(--neon);
+  box-shadow:0 0 25px rgba(237,92,201,0.6);
+}
+
+/* Responsive */
+@media (max-width:860px){
+  .character,
+  .character.reverse{
+    grid-template-columns:1fr;
+    gap:3rem;
+  }
+  .character.reverse .char-visuals{order:0}
+  .character.reverse .char-info{order:1;text-align:left}
+  .character.reverse .traits li{padding-left:1.2rem;padding-right:0}
+  .character.reverse .traits li::before{left:0;right:auto;content:"▸"}
+  .character.reverse .block-title::after{left:0;right:auto}
+  .char-visuals{max-width:420px}
+  .char-selfie{width:38%;bottom:-1.5rem;right:-1rem}
+  .character.reverse .char-selfie{left:-1rem}
+  .characters{gap:5rem;padding:2rem 1.2rem 4rem}
+  .spoiler-header{padding:4rem 1.2rem 2rem}
+  .back-link{position:static;display:inline-block;margin-bottom:2rem}
+}

@@ -1,0 +1,91 @@
+:root{
+  --violet:#663380;
+  --neon:#ED5CC9;
+  --slate:#333952;
+  --pastel:#FFC4E5;
+  --bg:#0a0812;
+  --text:#e9e6f2;
+}
+
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{
+  font-family:'JetBrains Mono', monospace;
+  background:var(--bg);
+  color:var(--text);
+  overflow-x:hidden;
+  min-height:100vh;
+  position:relative;
+}
+
+/* Fondo compartido */
+.bg-gradient{
+  position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(102,51,128,0.55), transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(237,92,201,0.35), transparent 55%),
+    radial-gradient(ellipse at 50% 50%, rgba(51,57,82,0.6), transparent 70%);
+  animation:drift 18s ease-in-out infinite alternate;
+}
+@keyframes drift{
+  0%{transform:scale(1) translate(0,0)}
+  100%{transform:scale(1.15) translate(-2%,-2%)}
+}
+
+.grid-bg{
+  position:fixed;inset:0;z-index:-2;
+  background-image:
+    linear-gradient(rgba(237,92,201,0.08) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(237,92,201,0.08) 1px, transparent 1px);
+  background-size:60px 60px;
+  mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  -webkit-mask-image:radial-gradient(ellipse at center, black 30%, transparent 80%);
+  animation:gridMove 30s linear infinite;
+}
+@keyframes gridMove{
+  0%{background-position:0 0,0 0}
+  100%{background-position:60px 60px,60px 60px}
+}
+
+.scanlines{
+  position:fixed;inset:0;z-index:-1;pointer-events:none;
+  background:repeating-linear-gradient(
+    0deg,
+    rgba(255,255,255,0.02) 0px,
+    rgba(255,255,255,0.02) 1px,
+    transparent 1px,
+    transparent 3px
+  );
+  mix-blend-mode:overlay;
+}
+
+#particles{position:fixed;inset:0;z-index:-1;pointer-events:none}
+
+.btn{
+  padding:.9rem 1.6rem;
+  background:linear-gradient(135deg, var(--violet), var(--neon));
+  border:none;
+  border-radius:10px;
+  color:#fff;
+  font-family:'JetBrains Mono', monospace;
+  font-size:.8rem;
+  letter-spacing:.15em;
+  text-transform:uppercase;
+  cursor:pointer;
+  position:relative;
+  overflow:hidden;
+  transition:transform .2s ease, box-shadow .3s ease;
+  box-shadow:0 0 25px rgba(237,92,201,0.3);
+}
+.btn:hover{
+  transform:translateY(-2px);
+  box-shadow:0 0 40px rgba(237,92,201,0.6);
+}
+.btn::before{
+  content:"";
+  position:absolute;inset:0;
+  background:linear-gradient(135deg, transparent, rgba(255,255,255,0.3), transparent);
+  transform:translateX(-100%);
+  transition:transform .6s ease;
+}
+.btn:hover::before{transform:translateX(100%)}
